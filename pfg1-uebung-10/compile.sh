@@ -1,3 +1,5 @@
+mkdir kochtopf out
+
 g++ -fPIC -c -Wall -Wextra -I ./header ./src/bib.cpp -o ./kochtopf/bib.o
 ld -shared ./kochtopf/bib.o -o ./out/libbib.so
 g++ -Wall -Wextra ./src/main.cpp -I ./header -o ./out/main -L./out -lbib -Wl,-rpath=.
