@@ -1,4 +1,5 @@
 # links
+## [Infotresen](https://moodle2.hs-kempten.de/moodle/course/view.php?id=529)
 ## [Theoretische Informatik (Brauer)](https://moodle2.hs-kempten.de/moodle/course/view.php?id=3349)
 schlüssel: thi21\
 [Theoretische Informatik (private seite)](http://www.juergenbrauer.org/teaching/thi/index.html)\
