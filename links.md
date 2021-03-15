@@ -8,9 +8,9 @@ schlüssel: bertrand
 ## [Algorithmen und Datenstrukturen (Göhner)](https://moodle2.hs-kempten.de/moodle/course/view.php?id=148)
 *möglicherweise falscher Kurs. (Er ist für Informatiker eingetragen)*
 ## [Game Design (Bühling)](https://moodle2.hs-kempten.de/moodle/enrol/index.php?id=3240)
-*Anmeldedaten zu diesem Kurs finden Sie im Moodle-Kurs "Infotresen", wenn die Veranstaltung angeboten wird.*
+schlüssel: 4TheHorde!
 ## [Gestaltung und Zeichnen (Buchwieser)](https://moodle2.hs-kempten.de/moodle/enrol/index.php?id=134)
 schlüssel: GZSS2021
 *Einschreibung deaktiviert oder inaktiv*
 ## [Analysis (Preisenberger)](https://mathematik.hs-kempten.de/moodle2/enrol/index.php?id=3)
-schlüssel fehlt
+schlüssel: 21#GE#Ana
