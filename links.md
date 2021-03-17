@@ -7,11 +7,10 @@ zugangsdaten: student:thi21
 ## [Programmieren 2 (Böhler)](https://moodle2.hs-kempten.de/moodle/course/view.php?id=3508)
 schlüssel: bertrand
 ## [Algorithmen und Datenstrukturen (Göhner)](https://moodle2.hs-kempten.de/moodle/course/view.php?id=148)
-*möglicherweise falscher Kurs. (Er ist für Informatiker eingetragen)*
+*benötogt keinen schlüssel*
 ## [Game Design (Bühling)](https://moodle2.hs-kempten.de/moodle/enrol/index.php?id=3240)
 schlüssel: 4TheHorde!
 ## [Gestaltung und Zeichnen (Buchwieser)](https://moodle2.hs-kempten.de/moodle/enrol/index.php?id=134)
 schlüssel: GZSS2021
-*Einschreibung deaktiviert oder inaktiv*
 ## [Analysis (Preisenberger)](https://mathematik.hs-kempten.de/moodle2/enrol/index.php?id=3)
 schlüssel: 21#GE#Ana
