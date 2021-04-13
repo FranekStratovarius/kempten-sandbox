@@ -1,0 +1,14 @@
+services:
+  build-linux:
+    image: ubuntu:latest
+    volumes:
+      - ./container:/container
+    command: /container/run-linux.sh
+  build-windows:
+    image: ubuntu:latest
+    volumes:
+      - ./container:/container
+    command: /container/run-windows.sh
+
+volumes:
+  container:

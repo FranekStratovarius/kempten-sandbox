@@ -1,0 +1,44 @@
+Performing C SOURCE FILE Test _GLFW_HAS_ASLR failed with the following output:
+Change Dir: /home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/001/container/src/win-extras/glfw/glfw-3.3.3/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_861c3/fast && /usr/bin/make  -f CMakeFiles/cmTC_861c3.dir/build.make CMakeFiles/cmTC_861c3.dir/build
+make[1]: Entering directory '/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/001/container/src/win-extras/glfw/glfw-3.3.3/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_861c3.dir/src.c.obj
+/usr/bin/i686-w64-mingw32-gcc -D_GLFW_HAS_ASLR  -Wl,--dynamicbase -o CMakeFiles/cmTC_861c3.dir/src.c.obj -c "/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/001/container/src/win-extras/glfw/glfw-3.3.3/CMakeFiles/CMakeTmp/src.c"
+Linking C executable cmTC_861c3.exe
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_861c3.dir/link.txt --verbose=1
+/usr/bin/cmake -E rm -f CMakeFiles/cmTC_861c3.dir/objects.a
+/usr/bin/i686-w64-mingw32-ar cr CMakeFiles/cmTC_861c3.dir/objects.a @CMakeFiles/cmTC_861c3.dir/objects1.rsp
+/usr/bin/i686-w64-mingw32-gcc  -Wl,--dynamicbase -Wl,--whole-archive CMakeFiles/cmTC_861c3.dir/objects.a -Wl,--no-whole-archive -o cmTC_861c3.exe -Wl,--out-implib,libcmTC_861c3.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTC_861c3.dir/linklibs.rsp
+collect2: fatal error: ld terminated with signal 11 [Segmentation fault], core dumped
+compilation terminated.
+make[1]: *** [CMakeFiles/cmTC_861c3.dir/build.make:108: cmTC_861c3.exe] Error 1
+make[1]: *** Deleting file 'cmTC_861c3.exe'
+make[1]: Leaving directory '/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/001/container/src/win-extras/glfw/glfw-3.3.3/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_861c3/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test _GLFW_HAS_64ASLR failed with the following output:
+Change Dir: /home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/001/container/src/win-extras/glfw/glfw-3.3.3/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f192d/fast && /usr/bin/make  -f CMakeFiles/cmTC_f192d.dir/build.make CMakeFiles/cmTC_f192d.dir/build
+make[1]: Entering directory '/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/001/container/src/win-extras/glfw/glfw-3.3.3/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f192d.dir/src.c.obj
+/usr/bin/i686-w64-mingw32-gcc -D_GLFW_HAS_64ASLR  -Wl,--high-entropy-va -o CMakeFiles/cmTC_f192d.dir/src.c.obj -c "/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/001/container/src/win-extras/glfw/glfw-3.3.3/CMakeFiles/CMakeTmp/src.c"
+Linking C executable cmTC_f192d.exe
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f192d.dir/link.txt --verbose=1
+/usr/bin/cmake -E rm -f CMakeFiles/cmTC_f192d.dir/objects.a
+/usr/bin/i686-w64-mingw32-ar cr CMakeFiles/cmTC_f192d.dir/objects.a @CMakeFiles/cmTC_f192d.dir/objects1.rsp
+/usr/bin/i686-w64-mingw32-gcc  -Wl,--high-entropy-va -Wl,--whole-archive CMakeFiles/cmTC_f192d.dir/objects.a -Wl,--no-whole-archive -o cmTC_f192d.exe -Wl,--out-implib,libcmTC_f192d.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/cmTC_f192d.dir/linklibs.rsp
+/usr/lib/gcc/i686-w64-mingw32/10.2.0/../../../../i686-w64-mingw32/bin/ld: unrecognized option '--high-entropy-va'
+/usr/lib/gcc/i686-w64-mingw32/10.2.0/../../../../i686-w64-mingw32/bin/ld: use the --help option for usage information
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_f192d.dir/build.make:108: cmTC_f192d.exe] Error 1
+make[1]: Leaving directory '/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/001/container/src/win-extras/glfw/glfw-3.3.3/CMakeFiles/CMakeTmp'
+make: *** [Makefile:140: cmTC_f192d/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
