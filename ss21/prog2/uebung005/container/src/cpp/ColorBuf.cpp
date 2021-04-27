@@ -69,36 +69,31 @@ void ColorBuf::buildColorPic(unsigned int x1, unsigned int y1, unsigned int x2, 
 	int p9x=xm;
 	int p9y=ym;
 
-	printf("x1: %i, xm: %i, x2: %i\ny1: %i, ym: %i, y2: %i\n\n",x1,xm,x2,y1,ym,y2);
-	printf("if: %i, %i\n\n",x2-x1,y2-y1);
+	//printf("x1: %i, xm: %i, x2: %i\ny1: %i, ym: %i, y2: %i\n\n",x1,xm,x2,y1,ym,y2);
+	//printf("if: %i, %i\n\n",x2-x1,y2-y1);
 
 	if(
 		((x2-x1)>1)
 		||
 		((y2-y1)>1)
 	){
-		printf("drawing...\n");
+		//printf("drawing...\n");
+		int change=20;
 		if((x1-x2)!=0){
 			if(cBuf.get(p5x,p5y).getRed()==0&&cBuf.get(p5x,p5y).getGreen()==0&&cBuf.get(p5x,p5y).getBlue()==0){
-				cBuf.set(p5x,p5y,cBuf.get(x1,y1).averageWith(cBuf.get(x2,y1)).randomlyChange(20));
+				cBuf.set(p5x,p5y,cBuf.get(x1,y1).averageWith(cBuf.get(x2,y1)).randomlyChange(change));
 			}
 			if(cBuf.get(p8x,p8y).getRed()==0&&cBuf.get(p8x,p8y).getGreen()==0&&cBuf.get(p8x,p8y).getBlue()==0){
-				cBuf.set(p8x,p8y,cBuf.get(x1,y2).averageWith(cBuf.get(x2,y2)).randomlyChange(20));
+				cBuf.set(p8x,p8y,cBuf.get(x1,y2).averageWith(cBuf.get(x2,y2)).randomlyChange(change));
 			}
-			//printf("p5: %i, %i, p8: %i, %i\n",p5x,p5y,p6x,p6y);
-			//cBuf.set(p5x,p5y,Color(255,255,255));
-			//cBuf.set(p8x,p8y,Color(255,255,255));
 		}
 		if((y1-y2)!=0){
 			if(cBuf.get(p6x,p6y).getRed()==0&&cBuf.get(p6x,p6y).getGreen()==0&&cBuf.get(p6x,p6y).getBlue()==0){
-				cBuf.set(p6x,p6y,cBuf.get(x1,y1).averageWith(cBuf.get(x1,y2)).randomlyChange(20));
+				cBuf.set(p6x,p6y,cBuf.get(x1,y1).averageWith(cBuf.get(x1,y2)).randomlyChange(change));
 			}
 			if(cBuf.get(p7x,p7y).getRed()==0&&cBuf.get(p7x,p7y).getGreen()==0&&cBuf.get(p7x,p7y).getBlue()==0){
-				cBuf.set(p7x,p7y,cBuf.get(x2,y1).averageWith(cBuf.get(x2,y2)).randomlyChange(20));
+				cBuf.set(p7x,p7y,cBuf.get(x2,y1).averageWith(cBuf.get(x2,y2)).randomlyChange(change));
 			}
-			//printf("p6: %i, %i, p7: %i, %i\n",p5x,p5y,p6x,p6y);
-			//cBuf.set(p6x,p6y,Color(255,255,255));
-			//cBuf.set(p7x,p7y,Color(255,255,255));
 		}
 		cBuf.set(p9x,p9y,cBuf.get(p5x,p5y).averageWith(
 			cBuf.get(p8x,p8y),

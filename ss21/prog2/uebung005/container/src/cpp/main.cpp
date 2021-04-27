@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <thread>
+#include <cstdio>	//TMP
 #include "GridViewer.h"
 #include "PaletteGridViewer.h"
 #include "ViewPortGL.h"
@@ -90,41 +91,128 @@ void diagonalTest() {
     }
 }
 
+Color colorFor(unsigned int value){
+	int red,green,blue;
+	red=(value >> 24)&0b11111111;
+	green=(value >> 16)&0b11111111;
+	blue=(value >> 8)&0b11111111;
+	return Color(red,green,blue);
+}
 
-int main() {
+unsigned int toColornumber(Color c){
+	unsigned int red=c.getRed();
+	unsigned int green=c.getGreen();
+	unsigned int blue=c.getBlue();
+
+	unsigned int result=red<<8;
+	result=(result|green)<<8;
+	result=(result|blue)<<8;
+	
+	return result;
+}
+
+void buildColorPic(unsigned int x1, unsigned int y1, unsigned int x2, unsigned int y2, GridViewer& gv){
+	int xm=x1+(x2-x1)/2;
+	int ym=y1+(y2-y1)/2;
+
+	int p5x=xm;
+	int p5y=y1;
+	int p8x=xm;
+	int p8y=y2;
+	int p6x=x1;
+	int p6y=ym;
+	int p7x=x2;
+	int p7y=ym;
+	int p9x=xm;
+	int p9y=ym;
+
+	if(
+		((x2-x1)>1)
+		||
+		((y2-y1)>1)
+	){
+		int change=70;
+		if((x1-x2)!=0){
+			if(colorFor(gv.getCell(p5x,p5y)).getRed()==0&&colorFor(gv.getCell(p5x,p5y)).getGreen()==0&&colorFor(gv.getCell(p5x,p5y)).getBlue()==0
+			){
+				//set p5 (top)
+				gv.setCell(p5x,p5y,toColornumber(colorFor(gv.getCell(x1,y1)).averageWith(colorFor(gv.getCell(x2,y1))).randomlyChange(change)));
+			}
+			if(colorFor(gv.getCell(p8x,p8y)).getRed()==0&&colorFor(gv.getCell(p8x,p8y)).getGreen()==0&&colorFor(gv.getCell(p8x,p8y)).getBlue()==0){
+				//set p8 (bottom)
+				gv.setCell(p8x,p8y,toColornumber(colorFor(gv.getCell(x1,y2)).averageWith(colorFor(gv.getCell(x2,y2))).randomlyChange(change)));
+			}
+		}
+		if((y1-y2)!=0){
+			if(colorFor(gv.getCell(p6x,p6y)).getRed()==0&&colorFor(gv.getCell(p6x,p6y)).getGreen()==0&&colorFor(gv.getCell(p6x,p6y)).getBlue()==0){
+				//set p6 (left)
+				gv.setCell(p6x,p6y,toColornumber(colorFor(gv.getCell(x1,y1)).averageWith(colorFor(gv.getCell(x1,y2))).randomlyChange(change)));
+			}
+			if(colorFor(gv.getCell(p7x,p7y)).getRed()==0&&colorFor(gv.getCell(p7x,p7y)).getGreen()==0&&colorFor(gv.getCell(p7x,p7y)).getBlue()==0){
+				//set p7 (right)
+				gv.setCell(p7x,p7y,toColornumber(colorFor(gv.getCell(x2,y1)).averageWith(colorFor(gv.getCell(x2,y2))).randomlyChange(change)));
+			}
+		}
+		//set p9 with average of p5, p6, p7, p8
+		gv.setCell(p9x,p9y,toColornumber(colorFor(gv.getCell(p5x,p5y)).averageWith(
+			colorFor(gv.getCell(p8x,p8y)),
+			colorFor(gv.getCell(p6x,p6y)),
+			colorFor(gv.getCell(p7x,p7y))
+		)));
+
+		buildColorPic(x1,y1,xm,ym,gv);		//oben links
+		buildColorPic(xm,y1,x2,ym,gv);		//oben rechts
+		buildColorPic(x1,ym,xm,y2,gv);		//unten links
+		buildColorPic(xm,ym,x2,y2,gv);		//unten rechts
+	}
+}
+
+int main(int argn, char* argv[]){
 	srand(static_cast<unsigned int>(time(nullptr)));
-	/*
-    try {
-        //diagonalTest();
-        //circleTest(1024, 16, 31);
-        paletteGridViewerTest();
-    } catch (...) {
-        cout << "Unknown error" << endl;
-        getchar();
-    }
-	*/
-	int width=500;
-	int height=500;
 
-	ViewPortGL vp=ViewPortGL("übung",width,height);
-	ColorBuf cb=ColorBuf(width,height);
-	cb.clear();
-	cb.set(0,0,Color(128,128,128).randomlyChange(128));
-	cb.set(0,height-1,Color(128,128,128).randomlyChange(128));
-	cb.set(width-1,0,Color(128,128,128).randomlyChange(128));
-	cb.set(width-1,height-1,Color(128,128,128).randomlyChange(128));
-	cb.buildColorPic(0,0,width-1,height-1,cb);
-	for(int x=0;x<width;x++){
-		for(int y=0;y<height;y++){
-			if(cb.get(x,y).getRed()==0){
-				printf("mist... x: %i, y:%i\n",x,y);
+	if(argn>1){
+		switch(std::stoi(argv[1])){
+			case 1:	{
+				//version without gridviewer
+				int width=1000;
+				int height=1000;
+
+				ViewPortGL vp=ViewPortGL("übung",width,height);
+				ColorBuf cb=ColorBuf(width,height);
+				cb.clear();
+				cb.set(0,0,Color(128,128,128).randomlyChange(128));
+				cb.set(0,height-1,Color(128,128,128).randomlyChange(128));
+				cb.set(width-1,0,Color(128,128,128).randomlyChange(128));
+				cb.set(width-1,height-1,Color(128,128,128).randomlyChange(128));
+				cb.buildColorPic(0,0,width-1,height-1,cb);
+				while(!vp.windowShouldClose()){
+					vp.clearViewPort();
+					cb.drawTo(vp);
+					vp.swapBuffers();
+				}
+				break;
+			}
+			case 2: {
+				//version with gridviewer
+
+				int width=64;
+				int height=64;
+
+				GridViewer gv=GridViewer("übung",1024,16);
+				gv.setCell(0,0,toColornumber(Color(128,128,128).randomlyChange(128)));
+				gv.setCell(0,height-1,toColornumber(Color(128,128,128).randomlyChange(128)));
+				gv.setCell(width-1,0,toColornumber(Color(128,128,128).randomlyChange(128)));
+				gv.setCell(width-1,height-1,toColornumber(Color(128,128,128).randomlyChange(128)));
+				buildColorPic(0,0,width-1,height-1,gv);
+				while(!gv.windowShouldClose()){
+					gv.clearViewPort();
+					gv.draw();
+					gv.swapBuffers();
+				}
+				break;
 			}
 		}
 	}
-	while(!vp.windowShouldClose()){
-		vp.clearViewPort();
-		cb.drawTo(vp);
-		vp.swapBuffers();
-	}
+
 	return 0;
 }
