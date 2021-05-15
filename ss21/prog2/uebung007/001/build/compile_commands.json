@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/007/001/build",
+  "command": "/usr/bin/c++  -I\"/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/007/001/src/include\" -Wall -g -std=c++17 -o CMakeFiles/uebung.dir/src/cpp/Color.cpp.o -c \"/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/007/001/src/cpp/Color.cpp\"",
+  "file": "/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/007/001/src/cpp/Color.cpp"
+},
+{
+  "directory": "/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/007/001/build",
+  "command": "/usr/bin/c++  -I\"/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/007/001/src/include\" -Wall -g -std=c++17 -o CMakeFiles/uebung.dir/src/cpp/SortingAlgorithms.cpp.o -c \"/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/007/001/src/cpp/SortingAlgorithms.cpp\"",
+  "file": "/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/007/001/src/cpp/SortingAlgorithms.cpp"
+}
+]

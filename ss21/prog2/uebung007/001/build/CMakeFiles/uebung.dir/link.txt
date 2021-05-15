@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wall -g CMakeFiles/uebung.dir/src/cpp/Color.cpp.o CMakeFiles/uebung.dir/src/cpp/SortingAlgorithms.cpp.o -o uebung 
