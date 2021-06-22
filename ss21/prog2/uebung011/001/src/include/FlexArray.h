@@ -12,9 +12,6 @@ class FlexArray {
 			for (unsigned int i = 0; i < size; i++) {
 				data[i] = defaultV;
 			}
-			//new
-			globalBeginIterator=FlexArrayIterator(this,0);
-			globalEndIterator=FlexArrayIterator(this,size);
 		}
 
 
@@ -51,7 +48,6 @@ class FlexArray {
 		class FlexArrayIterator{
 			friend FlexArray;
 			public:
-				FlexArrayIterator(){array=nullptr;}
 				FlexArrayIterator(FlexArray* array,unsigned int pos){
 					this->array=array;
 					this->pos=pos;
@@ -91,8 +87,8 @@ class FlexArray {
 		};
 
 		//new
-		inline FlexArrayIterator begin(){return globalBeginIterator;}
-		inline FlexArrayIterator end(){return globalEndIterator;}
+		inline FlexArrayIterator begin(){return FlexArrayIterator(this,0);}
+		inline FlexArrayIterator end(){return FlexArrayIterator(this,size);}
 
 	private:
 		void enlarge() {
@@ -111,8 +107,5 @@ class FlexArray {
 		T defaultValue;
 		T* data;
 		unsigned int size;
-		//new
-		FlexArrayIterator globalBeginIterator;
-		FlexArrayIterator globalEndIterator;
 };
 
