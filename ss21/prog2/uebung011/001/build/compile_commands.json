@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/011/001/build",
+  "command": "/usr/bin/c++  -I\"/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/011/001/src/include\" -Wall -g -std=c++20 -o CMakeFiles/uebung.dir/src/cpp/main.cpp.o -c \"/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/011/001/src/cpp/main.cpp\"",
+  "file": "/home/louis/wichtiges/kempten/ss21/programmieren 2/uebungen/011/001/src/cpp/main.cpp"
+}
+]

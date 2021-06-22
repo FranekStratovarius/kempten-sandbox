@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wall -g CMakeFiles/uebung.dir/src/cpp/main.cpp.o -o uebung 
